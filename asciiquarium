@@ -908,8 +908,14 @@ sub fishhook_cb {
 
 	# otherwise, just lower until we reach 1/4 from the bottom
 	} else {
-		if( ( $pos[1] + $entity->height) < $anim->height * .75) {
-			$pos[1]++;
+		if($entity->type eq 'hook_point') {
+			if( ( $pos[1] + $entity->height + 3) < $anim->height * .75) {
+				$pos[1]++;
+			}
+		} else {
+			if( ( $pos[1] + $entity->height) < $anim->height * .75) {
+				$pos[1]++;
+			}
 		}
 	}
 
@@ -923,24 +929,21 @@ sub add_fishhook {
 q{
        o
       ||
-      ||
+ .    ||
 / \   ||
-  \__//
+ \\\__//
   `--' 
 };
 
 	my $point_image =
 q{
-.
- 
-\
- 
+?
 };
 	my $line_image = "|\n"x50 . " \n"x6;
 
 	my $x = 10 + ( int(rand($anim->width() - 20)) );
 	my $y = -4;
-	my $point_x = $x + 1;
+	my $point_x = $x + 3;
 	my $point_y = $y + 2;
 
 	$anim->new_entity(
