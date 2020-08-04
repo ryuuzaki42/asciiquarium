@@ -710,11 +710,12 @@ sub fish_callback {
 	}
 	return $fish->move_entity($anim);
 }
+
 sub fish_collision {
 	my ($fish, $anim) = @_;
 	my $collisions = $fish->collisions();
 	foreach my $col_obj (@{$collisions}) {
-		if($col_obj->type eq 'teeth' && $fish->height <= 5) {
+		if($col_obj->type eq 'teeth') {
 			add_splat($anim, $col_obj->position());
 			$fish->kill();
 			last;
