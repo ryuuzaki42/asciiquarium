@@ -119,10 +119,10 @@ sub main {
 		my $nexttime = 0;
 
 		while(1) {
-			my $in = lc(getch());
+			my $in = getch();
 
 			if   ( $in eq 'q' ) { quit(); }   # Exit
-			elsif( $in eq 'r' ) { last; }     # Redraw (will recreate all objects)
+			elsif( $in eq 'r' || $in eq KEY_RESIZE()) { last; }     # Redraw (will recreate all objects)
 			elsif( $in eq 'p' ) { $paused = !$paused; }
 
 			$anim->animate() unless($paused);
