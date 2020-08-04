@@ -62,6 +62,8 @@ our $opt_c;
 our $opt_b;
 getopts('cb');
 
+my $redraw = 0;
+
 if ($opt_c) {			# 'classic' mode
 	$new_fish = 0;
 	$new_monster = 0;
@@ -129,6 +131,10 @@ sub main {
 			if   ( $in eq 'q' ) { quit(); }   # Exit
 			elsif( $in eq 'r' || $in eq KEY_RESIZE()) { last; }     # Redraw (will recreate all objects)
 			elsif( $in eq 'p' ) { $paused = !$paused; }
+			elsif( $redraw ) {
+			    $redraw = 0;
+			    last;
+			}
 
 			$anim->animate() unless($paused);
 		}
@@ -2111,7 +2117,7 @@ sub sighandler {
 	my ($sig) = @_;
 	if($sig eq 'INT') { quit(); }
 	elsif($sig eq 'WINCH') {
-		# ignore SIGWINCH, only redraw when requested
+		$redraw = 1;
 	}
 	else { quit("Exiting with SIG$sig"); }
 }
