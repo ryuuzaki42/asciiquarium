@@ -1587,7 +1587,7 @@ ygcgwwwww  ygcgwwwww  ygcgwwwww
 		shape		=> $duck_image[$dir],
 		auto_trans	=> 1,
 		color		=> $duck_mask[$dir],
-		position	=> [ $x, 5, $depth{'water_gap3'} ],
+		position	=> [ $x, 3, $depth{'water_gap3'} ],
 		callback_args	=> [ $speed, 0, 0, .25 ],
 		death_cb	=> \&random_object,
 		die_offscreen	=> 1,
