@@ -719,6 +719,15 @@ sub fish_collision {
 			add_splat($anim, $col_obj->position());
 			$fish->kill();
 			last;
+		} elsif($col_obj->type eq 'hook_point') {
+			retract($col_obj);
+			retract($fish);
+			# get the hook and line
+			my $hook = $anim->get_entities_of_type('fishhook')->[0];
+			my $line = $anim->get_entities_of_type('fishline')->[0];
+			retract($anim->entity($hook));
+			retract($anim->entity($line));
+			last;
 		}
 	}
 }
