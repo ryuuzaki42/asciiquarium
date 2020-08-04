@@ -56,8 +56,11 @@ my $version = "1.1";
 my $new_fish = 1;
 my $new_monster = 1;
 
+# 'Classic'
 our $opt_c;
-getopts('c');
+# black and white
+our $opt_b;
+getopts('cb');
 
 if ($opt_c) {			# 'classic' mode
 	$new_fish = 0;
@@ -102,7 +105,9 @@ sub main {
 	halfdelay(1);
 	#nodelay(1);
 
-	$anim->color(1);
+	if (!$opt_b) {
+	    $anim->color(1);
+	}
 
 	my $start_time = time;
 	my $paused = 0;
