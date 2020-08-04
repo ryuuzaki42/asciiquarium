@@ -1157,7 +1157,11 @@ sub add_monster {
 	my @parm = @_;
 
 	if ($new_monster) {
-		add_new_monster(@parm);
+		if (int(rand(12)) > 8) {
+			add_old_monster(@parm);
+		} else {
+			add_new_monster(@parm);
+		}
 	} else {
 		add_old_monster(@parm);
 	}
