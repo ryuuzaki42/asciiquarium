@@ -52,7 +52,7 @@ use Getopt::Std;
 use strict;
 use warnings;
 
-my $version = "1.1";
+my $version = "1.2";
 my $new_fish = 1;
 my $new_monster = 1;
 
@@ -1332,7 +1332,13 @@ sub rand_color {
 }
 
 sub VERSION_MESSAGE {
-    print "asciiquarium $version\n";
+    print "\ntiftquarium - version $version\n";
+    print "\nCommand line arguments:";
+    print "\n    -c  \"classic\" mode, only show species from Asciiquarium 1.0\n";
+    print "\n   While running:";
+    print "\n       q   quit";
+    print "\n       r   redraw (will recreate all entities)";
+    print "\n       p   toggle pause\n\n";
     exit;
 }
 
