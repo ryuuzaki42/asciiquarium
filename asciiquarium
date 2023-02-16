@@ -52,7 +52,7 @@ use Getopt::Std;
 use strict;
 use warnings;
 
-my $version = "1.1";
+my $version = "1.2";
 my $new_fish = 1;
 my $new_monster = 1;
 
