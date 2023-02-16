@@ -39,12 +39,12 @@ Usage
 -----
 
 Command line arguments:
-	-c	"classic" mode, only show species from Asciiquarium 1.0
+    -c  "classic" mode, only show species from Asciiquarium 1.0
 
 While running:
-	q	quit
-	r	redraw (will recreate all entities)
-	p	toggle pause
+    q    quit
+    r    redraw (will recreate all entities)
+    p    toggle pause
 
 Contributors
 ------------
