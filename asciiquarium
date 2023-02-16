@@ -434,7 +434,6 @@ sub bubble_collision {
             last;
         }
     }
-
 }
 
 sub add_all_fish {
@@ -841,8 +840,8 @@ sub add_fish_entity {
         color       => $color_mask,
         position    => [ 0, 0, $depth ],
         callback    => \&fish_callback,
-        callback_args    => [ $speed, 0, 0 ],
-        die_offscreen    => 1,
+        callback_args   => [ $speed, 0, 0 ],
+        die_offscreen   => 1,
         death_cb    => \&add_fish,
         physical    => 1,
         coll_handler    => \&fish_collision,
@@ -925,8 +924,8 @@ q#
     $anim->new_entity(
         shape       => \@splat_image,
         position    => [ $x - 4, $y - 2, $z-2 ],
-        default_color    => 'RED',
-        callback_args    => [ 0, 0, 0, .25 ],
+        default_color   => 'RED',
+        callback_args   => [ 0, 0, 0, .25 ],
         transparent => ' ',
         die_frame   => 15,
     );
@@ -1006,7 +1005,7 @@ q#
         shape       => "*",
         position    => [ $teeth_x, $teeth_y, $depth{'shark'}+1 ],
         depth       => $depth{'fish_end'} - $depth{'fish_start'},
-        callback_args    => [ $speed, 0, 0 ],
+        callback_args   => [ $speed, 0, 0 ],
         physical    => 1,
     );
 
@@ -1022,7 +1021,6 @@ q#
         death_cb    => sub { group_death(@_, 'teeth') },
         default_color    => 'CYAN',
     );
-
 }
 
 # when a shark dies, kill the "teeth" too, the associated
@@ -1190,9 +1188,9 @@ yywwwyyyyyyyyyyyyyyyyyyyy
         shape       => $ship_image[$dir],
         auto_trans  => 1,
         position    => [ $x, 0, $depth{'water_gap1'} ],
-        default_color    => 'WHITE',
-        callback_args    => [ $speed, 0, 0 ],
-        die_offscreen    => 1,
+        default_color   => 'WHITE',
+        callback_args   => [ $speed, 0, 0 ],
+        die_offscreen   => 1,
         death_cb    => \&random_object,
     );
 }
@@ -1264,7 +1262,6 @@ q{
 ;     ;
 });
 
-
     my $dir = int(rand(2));
     my $x;
     my $speed = 1;
@@ -1302,12 +1299,11 @@ q{
         shape       => \@whale_anim,
         auto_trans  => 1,
         position    => [ $x, 0, $depth{'water_gap2'} ],
-        default_color    => 'WHITE',
-        callback_args    => [ $speed, 0, 0, 1 ],
-        die_offscreen    => 1,
+        default_color   => 'WHITE',
+        callback_args   => [ $speed, 0, 0, 1 ],
+        die_offscreen   => 1,
         death_cb    => \&random_object,
     );
-
 }
 
 sub add_monster {
@@ -1383,10 +1379,10 @@ q{                                                W W
         auto_trans  => 1,
         color       => \@monster_anim_mask,
         position    => [ $x, 2, $depth{'water_gap2'} ],
-        callback_args    => [ $speed, 0, 0, .25 ],
+        callback_args   => [ $speed, 0, 0, .25 ],
         death_cb    => \&random_object,
-        die_offscreen    => 1,
-        default_color    => 'GREEN',
+        die_offscreen   => 1,
+        default_color   => 'GREEN',
     );
 }
 
@@ -1478,10 +1474,10 @@ q{
         auto_trans  => 1,
         color       => \@monster_anim_mask,
         position    => [ $x, 2, $depth{'water_gap2'} ],
-        callback_args    => [ $speed, 0, 0, .25 ],
+        callback_args   => [ $speed, 0, 0, .25 ],
         death_cb    => \&random_object,
-        die_offscreen    => 1,
-        default_color    => 'GREEN',
+        die_offscreen   => 1,
+        default_color   => 'GREEN',
     );
 }
 
@@ -1587,12 +1583,11 @@ q{
         auto_trans  => 1,
         color       => $color_mask,
         position    => [ $x, $y, $depth{'shark'} ],
-        callback_args    => [ $speed, 0, 0 ],
+        callback_args   => [ $speed, 0, 0 ],
         death_cb    => \&random_object,
-        die_offscreen    => 1,
-        default_color    => 'YELLOW',
+        die_offscreen   => 1,
+        default_color   => 'YELLOW',
     );
-
 }
 
 sub add_big_fish_2 {
@@ -2334,7 +2329,6 @@ sub initialize {
     }
 }
 
-
 sub center {
     my ($width, $mesg) = @_;
     my $l = length($mesg);
@@ -2360,7 +2354,13 @@ sub rand_color {
 }
 
 sub VERSION_MESSAGE {
-    print "asciiquarium $version\n";
+    print "\nasciiquarium - version $version\n";
+    print "\nCommand line arguments:";
+    print "\n    -c  \"classic\" mode, only show species from Asciiquarium 1.0\n";
+    print "\n   While running:";
+    print "\n       q   quit";
+    print "\n       r   redraw (will recreate all entities)";
+    print "\n       p   toggle pause\n\n";
     exit;
 }
 
