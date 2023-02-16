@@ -81,7 +81,7 @@ my %depth = (
 	shark		=> 2,
 	fish_start	=> 3,
 	fish_end	=> 20,
-	seaweed		=> 21, 
+	seaweed		=> 21,
 	castle		=> 22,
 
 	# waterline
@@ -120,7 +120,7 @@ sub main {
 		add_all_seaweed($anim);
 		add_all_fish($anim);
 		random_object(undef, $anim);
-		
+
 		$anim->redraw_screen();
 
 		my $nexttime = 0;
@@ -177,7 +177,8 @@ sub add_environment {
 
 sub add_castle {
 	my ($anim) = @_;
-	my $castle_image = q{
+	my @castle_image = (
+q{
                T~~
                |
               /^\
@@ -191,9 +192,81 @@ sub add_castle {
  |=  []- |-  /| |\   |=_ =[] |
  |- =_   | =| | | |  |- = -  |
  |_______|__|_|_|_|__|_______|
-};
+},q{
+               T~~
+               |
+              /^\
+             /   \
+ _   _   _  /     \  _   _   _
+[ ]_[ ]_[ ]/ _   _ \[ ]_[ ]_[ ]
+|_=__-_ =_|_[ ]_[ ]_|_=-___-__|
+ | _- =  | =_ = _    |= _=   |
+ |= -[]  |- = _ =    |_-=_[] |
+ | =_    |= - ___    | =_ =  |
+ |=  []- |-  /| |\   |=_ =[] |
+ |- =_   | =|_|_|_|  |- = -  |
+ |_______|__|     |__|_______|
+},q{
+               T~~
+               |
+              /^\
+             /   \
+ _   _   _  /     \  _   _   _
+[ ]_[ ]_[ ]/ _   _ \[ ]_[ ]_[ ]
+|_=__-_ =_|_[ ]_[ ]_|_=-___-__|
+ | _- =  | =_ = _    |= _=   |
+ |= -[]  |- = _ =    |_-=_[] |
+ | =_    |= - ___    | =_ =  |
+ |=  []- |-  /|_|\   |=_ =[] |
+ |- =_   | =|     |  |- = -  |
+ |_______|__|     |__|_______|
+},q{
+               T~~
+               |
+              /^\
+             /   \
+ _   _   _  /     \  _   _   _
+[ ]_[ ]_[ ]/ _   _ \[ ]_[ ]_[ ]
+|_=__-_ =_|_[ ]_[ ]_|_=-___-__|
+ | _- =  | =_ = _    |= _=   |
+ |= -[]  |- = _ =    |_-=_[] |
+ | =_    |= - ___    | =_ =  |
+ |=  []- |-  /   \   |=_ =[] |
+ |- =_   | =|     |  |- = -  |
+ |_______|__|     |__|_______|
+},q{
+               T~~
+               |
+              /^\
+             /   \
+ _   _   _  /     \  _   _   _
+[ ]_[ ]_[ ]/ _   _ \[ ]_[ ]_[ ]
+|_=__-_ =_|_[ ]_[ ]_|_=-___-__|
+ | _- =  | =_ = _    |= _=   |
+ |= -[]  |- = _ =    |_-=_[] |
+ | =_    |= - ___    | =_ =  |
+ |=  []- |-  /|_|\   |=_ =[] |
+ |- =_   | =|     |  |- = -  |
+ |_______|__|     |__|_______|
+},q{
+               T~~
+               |
+              /^\
+             /   \
+ _   _   _  /     \  _   _   _
+[ ]_[ ]_[ ]/ _   _ \[ ]_[ ]_[ ]
+|_=__-_ =_|_[ ]_[ ]_|_=-___-__|
+ | _- =  | =_ = _    |= _=   |
+ |= -[]  |- = _ =    |_-=_[] |
+ | =_    |= - ___    | =_ =  |
+ |=  []- |-  /| |\   |=_ =[] |
+ |- =_   | =|_|_|_|  |- = -  |
+ |_______|__|     |__|_______|
+}
+	);
 
-	my $castle_mask = q{
+	my @castle_mask = (
+q{
                 RR
 
               yyy
@@ -207,13 +280,85 @@ sub add_castle {
              yy yy
             y y y y
             yyyyyyy
-};
+},q{
+                RR
+
+              yyy
+             y   y
+            y     y
+           y       y
+
+
+
+              yyy
+             yy yy
+            yyyyyyy
+            y     y
+},q{
+                RR
+
+              yyy
+             y   y
+            y     y
+           y       y
+
+
+
+              yyy
+             yyyyy
+            y     y
+            y     y
+},q{
+                RR
+
+              yyy
+             y   y
+            y     y
+           y       y
+
+
+
+              yyy
+             y   y
+            y     y
+            y     y
+},q{
+                RR
+
+              yyy
+             y   y
+            y     y
+           y       y
+
+
+
+              yyy
+             yyyyy
+            y     y
+            y     y
+},q{
+                RR
+
+              yyy
+             y   y
+            y     y
+           y       y
+
+
+
+              yyy
+             yy yy
+            yyyyyyy
+            y     y
+});
 
 	$anim->new_entity(
 		name		=> "castle",
-		shape		=> $castle_image,
-		color		=> $castle_mask,
+		shape		=> \@castle_image,
+		auto_trans	=> 1,
+		color		=> \@castle_mask,
 		position	=> [ $anim->width()-32, $anim->height()-13, $depth{'castle'} ],
+		callback_args => [ 0, 0, 0, 0.1],
 		default_color	=> 'BLACK',
 	);
 }
@@ -275,7 +420,7 @@ sub add_bubble {
 		callback_args	=> [ 0, -1, 0, .1 ],
 		die_offscreen	=> 1,
 		physical	=> 1,
-		coll_handler	=> \&bubble_collision, 
+		coll_handler	=> \&bubble_collision,
 		default_color	=> 'CYAN',
 	);
 }
@@ -668,7 +813,7 @@ q{
 sub add_fish_entity {
 	my $anim = shift;
 	my @fish_image = @_;
-	
+
 	# 1: body
 	# 2: dorsal fin
 	# 3: flippers
@@ -825,7 +970,7 @@ q#
 
 
                                            cR
- 
+
                                           cWWWWWWWW
 
 
@@ -989,14 +1134,14 @@ q{
 		physical	=> 1,
 		default_color	=> 'GREEN',
 		callback	=> \&fishhook_cb,
-		
+
 	);
 }
 
 sub add_ship {
 	my ($old_ent, $anim) = @_;
 
-	my @ship_image = (	
+	my @ship_image = (
 q{
      |    |    |
     )_)  )_)  )_)
@@ -1135,7 +1280,7 @@ q{
 		$spout_align = 11;
 		$x = -18;
 	}
-	
+
 	# no water spout
 	for (1..5) {
 		push(@whale_anim, "\n\n\n" . $whale_image[$dir]);
@@ -1540,6 +1685,82 @@ q{
 	);
 }
 
+sub add_sword_fish {
+  my ($old_end, $anim) = @_;
+
+  my @sword_fish_image = (
+q{
+                             )",
+_                           /\\\\\\\\
+ ",????????????_____,,,,,--\\\\\\\\\\\\)
+  \\\\????????,,;_______\\\\\\\\\\----""";_
+   )\\_.-'`"""""......-------------,o";__________
+   ==.-.,____           """;;;;,__._.=='""
+   )/????"???"\\""---;...,______:.-"
+  //???????????")_.-`      _.-'
+_.'????????????????????_.-'
+},
+q{
+                ,"(
+               ////\                           _
+              (//////--,,,,,_____????????????,"
+            _;"""----/////_______;,,????????//
+__________;"o,-------------......"""""`'-._/(
+      ""'==._.__,;;;;"""           ____,.-.==
+             "-.:______,...;---""/"???"????\\(
+                 '-._      `-._("???????????\\\
+                     '-._?????????????????????'._
+});
+
+  my @sword_fish_mask = (
+q{
+                             222
+6                           22222
+ 66            2222222222222222222
+  66        111111111111111111111111
+   666111111111111111111111111111144455555555555
+   6661111111           111777711111155555
+   66   1   11111111111111111111111
+  66          3333333      3333
+666                    3333
+},
+q{
+                222
+               22222                           6
+              2222222222222222222            66
+            111111111111111111111111        66
+555555555554441111111111111111111111111111666
+      555551111117777111           1111111666
+             11111111111111111111111   1   66
+                 3333      3333333          66
+                     3333                    666
+});
+
+	my $dir = int(rand(2));
+	my $x;
+	my $speed = 3.5;
+	if($dir) {
+		$x = $anim->width()-1;
+		$speed *= -1;
+	} else {
+		$x = -33;
+	}
+	my $max_height = 9;
+	my $min_height = $anim->height() - 14;
+	my $y = int(rand($min_height - $max_height)) + $max_height;
+	my $color_mask = rand_color($sword_fish_mask[$dir]);
+	$anim->new_entity(
+		shape		=> $sword_fish_image[$dir],
+		auto_trans	=> 1,
+		color		=> $color_mask,
+		position	=> [ $x, $y, $depth{'shark'} ],
+		callback_args	=> [ $speed, 0, 0 ],
+		death_cb	=> \&random_object,
+		die_offscreen	=> 1,
+		default_color	=> 'YELLOW',
+	);
+}
+
 sub add_ducks {
 	my ($old_ent, $anim) = @_;
 	my @duck_image = (
@@ -1636,8 +1857,8 @@ q{
 }
 	]
 	);
-	
-	
+
+
 	my @dolphin_mask = (
 q{
 
@@ -1651,33 +1872,33 @@ q{
 
 
 	my $dir = int(rand(2));
-	
+
 	my $x;
 	my $speed = 1;
 	my $distance = 15; # how far apart the dolphins are
-	
+
 	# right to left
 	if($dir) {
 		$speed *= -1;
 		$distance *= -1;
 		$x = $anim->width()-2;
-		
+
 	# left to right
 	} else {
 		$x = -13
 	}
-	
+
 	my $up = [$speed,-.5,0,.5];
 	my $down = [$speed,.5,0,.5];
 	my $glide = [$speed,0,0,.5];
-	
+
 	my @path;
-	
+
 	for(1..14) { push(@path, $up); }
 	for(1..2) { push(@path, $glide); }
 	for(1..14) { push(@path, $down); }
 	for(1..6) { push(@path, $glide); }
-	
+
 	my $dolphin3 = $anim->new_entity(
 		shape		=> $dolphin_image[$dir],
 		auto_trans	=> 1,
@@ -1688,7 +1909,7 @@ q{
 		die_offscreen	=> 0,
 		default_color	=> 'blue',
 	);
-	
+
 	my $dolphin2 = $anim->new_entity(
 		shape		=> $dolphin_image[$dir],
 		auto_trans	=> 1,
@@ -1698,7 +1919,7 @@ q{
 		die_offscreen	=> 0,
 		default_color	=> 'BLUE',
 	);
-	
+
 	my $dolphin1 = $anim->new_entity(
 		shape		=> $dolphin_image[$dir],
 		auto_trans	=> 1,
@@ -1710,7 +1931,7 @@ q{
 		die_offscreen	=> 1,
 		default_color	=> 'CYAN',
 	);
-	
+
 }
 
 sub add_swan {
@@ -1738,7 +1959,7 @@ q{
 }
 	]
 	);
-	
+
 	my @swan_mask = (
 q{
 
@@ -1759,7 +1980,7 @@ yy
 	} else {
 		$x = -10
 	}
-	
+
 	$anim->new_entity(
 		shape		=> $swan_image[$dir],
 		auto_trans	=> 1,
@@ -1818,9 +2039,6 @@ sub add_submarine {
 	my @submarine_image = (
 	[
 q{
-
-
-
                        __
                       _|_
                      /   |
@@ -1830,8 +2048,6 @@ q{
 (_)?\_________________________________/
 }
 ,q{
-
-
                        __
                        |
                       _|_
@@ -1842,7 +2058,6 @@ q{
 (_)?\_________________________________/
 }
 ,q{
-
                        __
                        |
                        |
@@ -1890,7 +2105,6 @@ q{
 (_)?\_________________________________/
 }
 ,q{
-
                        __
                        |
                        |
@@ -1902,8 +2116,6 @@ q{
 (_)?\_________________________________/
 }
 ,q{
-
-
                        __
                        |
                       _|_
@@ -1914,9 +2126,6 @@ q{
 (_)?\_________________________________/
 }
 ,q{
-
-
-
                        __
                       _|_
                      /   |
@@ -1927,9 +2136,6 @@ q{
 }
 	],[
 q{
-
-
-
                __
                _|_
               |   \
@@ -1939,8 +2145,6 @@ ______________|____\_______________ ? _
   \________________________________/?(_)
 }
 ,q{
-
-
                __
                 |
                _|_
@@ -1951,7 +2155,6 @@ ______________|____\_______________ ? _
   \________________________________/?(_)
 }
 ,q{
-
                __
                 |
                 |
@@ -1999,7 +2202,6 @@ ______________|____\_______________ ? _
   \________________________________/?(_)
 }
 ,q{
-
                __
                 |
                 |
@@ -2011,8 +2213,6 @@ ______________|____\_______________ ? _
   \________________________________/?(_)
 }
 ,q{
-
-
                __
                 |
                _|_
@@ -2023,9 +2223,6 @@ ______________|____\_______________ ? _
   \________________________________/?(_)
 }
 ,q{
-
-
-
                __
                _|_
               |   \
@@ -2044,7 +2241,6 @@ q{
                        ww
                        ww
                        w
-
  w
 w w
  www                      w   w   w
@@ -2055,7 +2251,6 @@ www
                ww
                ww
                 w
-
                                       w
                                      w w
       w   w   w                     www
@@ -2091,6 +2286,7 @@ sub init_random_objects {
 		\&add_whale,
 		\&add_monster,
 		\&add_big_fish,
+    \&add_sword_fish,
 		\&add_shark,
 		\&add_fishhook,
 		\&add_swan,
