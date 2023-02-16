@@ -20,8 +20,8 @@ it's executable and put it somewhere convenient, like /usr/local/bin or
        sudo apt-get install libcurses-perl
   2) Run
        cpan
-     at the shell.  Agree to the defaults for everything.
-     To leave cpan, type 
+     at the shell. Agree to the defaults for everything.
+     To leave cpan, type
        quit
   3) Type
     sudo cpan Term::Animation
