@@ -106,7 +106,7 @@ sub main {
 
     my $start_time = time;
     my $paused = 0;
-    while(1) {
+    while (1) {
 
         add_environment($anim);
         add_castle($anim);
@@ -118,20 +118,22 @@ sub main {
 
         my $nexttime = 0;
 
-        while(1) {
+        while (1) {
             my $in = lc(getch());
 
-            if   ( $in eq 'q' ) { quit(); }   # Exit
-            elsif( $in eq 'r' ) { last; }     # Redraw (will recreate all objects)
-            elsif( $in eq 'p' ) { $paused = !$paused; }
+            if ($in eq 'q') { # Exit
+                quit();
+            } elsif ($in eq 'r') { # Redraw (will recreate all objects)
+                last;
+            } elsif($in eq 'p') { #Pause
+                $paused = !$paused;
+            }
 
             $anim->animate() unless($paused);
         }
         $anim->update_term_size();
         $anim->remove_all_entities();
-
     }
-
 }
 
 sub add_environment {
@@ -188,7 +190,6 @@ ssssssssssssssssssssssssssssssssssssssssssooooooooyyyyyyyoooooooodddddd+++++++++
 sssssssssssssssssssssssssssssssssssssssssssoooooooooooooooooooooodddddd+++++++++++++++++++++++++++++
 };
 
-
     my $castle_mask = q{
              };
 
@@ -244,7 +245,7 @@ sub add_bubble {
     my @bubble_pos = @fish_pos;
 
     # moving right
-    if($cb_args->[0] > 0) {
+    if ($cb_args->[0] > 0) {
         $bubble_pos[0] += $fish_size[0];
     }
     $bubble_pos[1] += int($fish_size[1] / 2);
@@ -267,12 +268,11 @@ sub bubble_collision {
     my ($bubble, $anim) = @_;
     my $collisions = $bubble->collisions();
     foreach my $col_obj (@{$collisions}) {
-        if($col_obj->type eq 'waterline') {
+        if ($col_obj->type eq 'waterline') {
             $bubble->kill();
             last;
         }
     }
-
 }
 
 sub add_all_fish {
@@ -520,9 +520,10 @@ sub add_fish_entity {
     $color_mask =~ s/4/W/gm;
     $color_mask = rand_color($color_mask);
 
-    if($fish_num % 2) {
+    if ($fish_num % 2) {
         $speed *= -1;
     }
+
     my $fish_object = Term::Animation::Entity->new(
         type        => 'fish',
         shape       => $fish_image[$fish_index],
@@ -540,7 +541,8 @@ sub add_fish_entity {
     my $max_height = 9;
     my $min_height = $anim->height() - $fish_object->{'HEIGHT'};
     $fish_object->{'Y'} = int(rand($min_height - $max_height)) + $max_height;
-    if($fish_num % 2) {
+
+    if ($fish_num % 2) {
         $fish_object->{'X'} = $anim->width()-2;
     } else {
         $fish_object->{'X'} = 1 - $fish_object->{'WIDTH'};
@@ -550,7 +552,7 @@ sub add_fish_entity {
 
 sub fish_callback {
     my ($fish, $anim) = @_;
-    if(int(rand(100)) > 97) {
+    if (int(rand(100)) > 97) {
         add_bubble($fish, $anim);
     }
     return $fish->move_entity($anim);
@@ -559,7 +561,7 @@ sub fish_collision {
     my ($fish, $anim) = @_;
     my $collisions = $fish->collisions();
     foreach my $col_obj (@{$collisions}) {
-        if($col_obj->type eq 'teeth' && $fish->height <= 5) {
+        if ($col_obj->type eq 'teeth' && $fish->height <= 5) {
             add_splat($anim, $col_obj->position());
             $fish->kill();
             last;
@@ -756,7 +758,7 @@ yywwwyyyyyyyyyyyyyyyyyyyy
     my $dir = int(rand(2));
     my $x = -24;
     my $speed = 1;
-    if($dir) {
+    if ($dir) {
         $speed *= -1;
         $x = $anim->width()-2;
     }
@@ -840,7 +842,6 @@ q{
 ;     ;
 });
 
-
     my $dir = int(rand(2));
     my $x;
     my $speed = 1;
@@ -848,7 +849,7 @@ q{
     my @whale_anim;
     my @whale_anim_mask;
 
-    if($dir) {
+    if ($dir) {
         $spout_align = 1;
         $speed *= -1;
         $x = $anim->width()-2;
@@ -883,7 +884,6 @@ q{
         die_offscreen    => 1,
         death_cb    => \&random_object,
     );
-
 }
 
 sub add_monster {
@@ -1033,10 +1033,11 @@ q{
 
 
 });
+
     my $dir = int(rand(2));
     my $x;
     my $speed = 2;
-    if($dir) {
+    if ($dir) {
         $speed *= -1;
         $x = $anim->width()-2;
     } else {
@@ -1140,16 +1141,16 @@ q{
               11111
 });
 
-
     my $dir = int(rand(2));
     my $x;
     my $speed = 3;
-    if($dir) {
+    if ($dir) {
         $x = $anim->width()-1;
         $speed *= -1;
     } else {
         $x = -34;
     }
+
     my $max_height = 9;
     my $min_height = $anim->height() - 15;
     my $y = int(rand($min_height - $max_height)) + $max_height;
@@ -1164,7 +1165,6 @@ q{
         die_offscreen    => 1,
         default_color    => 'YELLOW',
     );
-
 }
 
 sub add_big_fish_2 {
@@ -1258,7 +1258,7 @@ q{
 }
 
 sub init_random_objects {
-    #return ( \&add_shark );
+    #return (\&add_shark);
     return (
         \&add_ship,
         \&add_whale,
@@ -1296,7 +1296,6 @@ sub quit {
     exit;
 }
 
-
 sub initialize {
     # this may be paranoid, but i don't want to leave
     # the user's terminal in a state that they might not
@@ -1306,17 +1305,14 @@ sub initialize {
     }
 }
 
-
 sub center {
     my ($width, $mesg) = @_;
     my $l = length($mesg);
-    if($l < $width) {
+    if ($l < $width) {
         return ' 'x(int(($width - length($mesg))/2)) . $mesg;
-    }
-    elsif($l > $width) {
+    } elsif($l > $width) {
         return(substr($mesg, 0, ($width - ($l + 3))) . "...");
-    }
-    else {
+    } else {
         return $mesg;
     }
 }
@@ -1341,4 +1337,3 @@ sub VERSION_MESSAGE {
     print "\n       p   toggle pause\n\n";
     exit;
 }
-
