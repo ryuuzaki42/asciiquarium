@@ -104,8 +104,8 @@ Anything that she didn't do, I don't have a source for.
 
 ```
 
-This repository is a fork from [cmatsuoka's asciiquarium][], with new fish
-species backported from the Android live wallpaper and other minor
+This repository is a fork from [sandsmark's asciiquarium][], witch is a fork of [cmatsuoka's asciiquarium][],
+with new fish species backported from the Android live wallpaper and other minor
 improvements by Claudio Matsuoka. It also merges contributions found in
 that repository's [Pull Requests][]:
 
@@ -116,9 +116,17 @@ that repository's [Pull Requests][]:
 - [Add sword fish][] by [robert1003][] with art from
   [https://ascii.co.uk/art/fish][]
 
+And more:
+
+- [Added info some update info of polettix][] by [polettix][]
+- Help message (-h or --help)
+- Count of fish (-f number, like -f 10)
+- Spaces instead tabs
+
 [Perl]: https://www.perl.org/
 [Installing Perl Modules]: https://github.polettix.it/ETOOBUSY/2020/01/04/installing-perl-modules/
 [cmatsuoka's asciiquarium]: https://github.com/cmatsuoka/asciiquarium
+[sandsmark's asciiquarium]: https://github.com/sandsmark/asciiquarium
 [Pull Requests]: https://github.com/cmatsuoka/asciiquarium/pulls
 [robert1003]: https://github.com/robert1003
 [Add sword fish]: https://github.com/cmatsuoka/asciiquarium/pull/12
@@ -127,3 +135,5 @@ that repository's [Pull Requests][]:
 [Added yellow submarine]: https://github.com/cmatsuoka/asciiquarium/pull/6
 [https://ascii.co.uk/art/submarine]: https://ascii.co.uk/art/submarine
 [Added objects from Kirk's version]: https://github.com/cmatsuoka/asciiquarium/pull/5
+[polettix]: https://github.com/polettix
+[Added info some update info of polettix]: https://github.com/polettix/asciiquarium
