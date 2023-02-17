@@ -1,8 +1,8 @@
 
-Asciiquarium is an aquarium/sea animation in ASCII art.
+# Asciiquarium is an aquarium/sea animation in ASCII art.
 
 Original: https://robobunny.com/projects/asciiquarium/html/
-by: Kirk Baucom <kbaucom@schizoid.com>
+By: Kirk Baucom <kbaucom@schizoid.com>
 
 LICENSE: GNU GENERAL PUBLIC LICENSE - Version 2, June 1991
 
@@ -14,33 +14,35 @@ it's executable and put it somewhere convenient.
 
   Slackware 15.0
   ------
-    1 - Install perl-Curses
+    Need perl-Curses:
        https://slackbuilds.org/repository/15.0/perl/perl-Curses/
 
-    2 - Clone and Run
+    Clone and Run
         git clone https://github.com/ryuuzaki42/asciiquarium
         cd asciiquarium/
         ./asciiquarium
         ./tiftquarium
 
-    # Packages in releases:
+    # Or download the packages in releases:
         https://github.com/ryuuzaki42/asciiquarium/releases
 
 Usage
 -----
 
 Command line arguments:
+
     -b, black and white mode
     -c, "classic" mode, only show species from asciiquarium 1.1
     -f number, Number of fish (like -f 10)
 
 While running:
+
     q - quit
     r - redraw (will recreate all entities)
     p - toggle pause
     mouse scroll - next draw (temporary speedups)
 
-First... the *original* README:
+The *original* README:
 
 ```text
        Asciiquarium v1.1
@@ -139,4 +141,4 @@ And more:
 [Added objects from Kirk's version]: https://github.com/cmatsuoka/asciiquarium/pull/5
 [polettix]: https://github.com/polettix
 [Added info some update info of polettix]: https://github.com/polettix/asciiquarium
-[polettix]: https://github.com/ryuuzaki42
+[ryuuzaki42]: https://github.com/ryuuzaki42
