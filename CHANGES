@@ -1,4 +1,9 @@
-Changes for Asciiquarium
+Changes for asciiquarium and tiftquarium
+
+Version 1.2
+    - ? to ' '
+    - tab to spaces
+    - more information in --help message
 
 Version 1.1
     - Add new fish species
