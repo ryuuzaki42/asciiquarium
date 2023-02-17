@@ -36,7 +36,7 @@
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License along
@@ -56,11 +56,19 @@ my $version = "1.2";
 my $new_fish = 1;
 my $new_monster = 1;
 
-# 'Classic'
-our $opt_c;
-# black and white
-our $opt_b;
-getopts('cb');
+#getopts('cb');
+
+my %options=();
+getopts("cbfh", \%options);
+
+our $opt_b = $options{b}; # black and white
+our $opt_c = $options{c}; # 'classic' mode
+our $opt_f = $options{f}; # count of fish
+our $opt_h = $options{h}; # help
+
+if ($opt_h) { # -h
+    VERSION_MESSAGE();
+}
 
 my $redraw = 0;
 
@@ -127,8 +135,8 @@ sub main {
         while(1) {
             my $in = getch();
 
-            if   ( $in eq 'q' ) { quit(); }   # Exit
-            elsif( $in eq 'r' || $in eq KEY_RESIZE()) { last; }     # Redraw (will recreate all objects)
+            if   ( $in eq 'q' ) { quit(); } # Exit
+            elsif( $in eq 'r' || $in eq KEY_RESIZE()) { last; } # Redraw (will recreate all objects)
             elsif( $in eq 'p' ) { $paused = !$paused; }
             elsif( $redraw ) {
                 $redraw = 0;
@@ -164,7 +172,7 @@ sub add_environment {
             name        => "water_seg_$i",
             type        => "waterline",
             shape       => $water_line_segment[$i],
-            position    => [ 0, $i+5, $depth{'water_line'  . $i} ],
+            position    => [ 0, $i+5, $depth{'water_line' . $i} ],
             default_color    => 'cyan',
             depth       => 22,
             physical    => 1,
@@ -356,7 +364,7 @@ q{
         color       => \@castle_mask,
         position    => [ $anim->width()-32, $anim->height()-13, $depth{'castle'} ],
         callback_args => [ 0, 0, 0, 0.1],
-        default_color    => 'BLACK',
+        default_color => 'BLACK',
     );
 }
 
@@ -438,7 +446,14 @@ sub add_all_fish {
     # figure out how many fish to add by the size of the screen,
     # minus the stuff above the water
     my $screen_size = ($anim->height() - 9) * $anim->width();
-    my $fish_count = int($screen_size / 350);
+    my $fish_count;
+
+    if ( $opt_f == '') {
+        $fish_count = int($screen_size / 350);
+     } else {
+        $fish_count = $opt_f;
+    }
+
     for (1..$fish_count) {
         add_fish(undef, $anim);
     }
@@ -2352,12 +2367,14 @@ sub rand_color {
 sub VERSION_MESSAGE {
     print "\nasciiquarium - version $version\n";
     print "\nCommand line arguments:";
-    print "\n    -c  \"classic\" mode, only show species from Asciiquarium 1.0\n";
-    print "\n    -b  black and white mode\n";
-    print "\n   While running:";
-    print "\n       q   quit";
-    print "\n       r   redraw (will recreate all entities)";
-    print "\n       p   toggle pause\n\n";
+    print "\n   -b, black and white mode";
+    print "\n   -c, \"classic\" mode, only show species from asciiquarium 1.1";
+    print "\n   -f number, Number of fish (like -f 10)";
+    print "\n\nWhile running:";
+    print "\n   q - quit";
+    print "\n   r - redraw (will recreate all entities)";
+    print "\n   p - toggle pause";
+    print "\n   mouse scroll - next draw (temporary speedups)\n\n";
     exit;
 }
 
