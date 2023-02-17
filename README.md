@@ -121,11 +121,9 @@ that repository's [Pull Requests][]:
 And more:
 
 - [Added info some update info of polettix][] by [polettix][]
-- Help message (-h or --help) by [ryuuzaki42][]
-- Count of fish (-f number, like -f 10) by [ryuuzaki42][]
-- Spaces instead tabs by [ryuuzaki42][]
+- Add tiftquarium by [mtift][]
 
-"Update" to version 1.2
+Many ypdates in version 1.2 by [ryuuzaki42][], see CHANGES file
 
 [Perl]: https://www.perl.org/
 [Installing Perl Modules]: https://github.polettix.it/ETOOBUSY/2020/01/04/installing-perl-modules/
@@ -142,3 +140,4 @@ And more:
 [polettix]: https://github.com/polettix
 [Added info some update info of polettix]: https://github.com/polettix/asciiquarium
 [ryuuzaki42]: https://github.com/ryuuzaki42
+[mtift ]: https://github.com/mtift/asciiquarium/commit/be5693e723386e362e69a1b1873186f2a088e6d5
