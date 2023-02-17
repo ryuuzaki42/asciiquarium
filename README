@@ -11,6 +11,20 @@ Asciiquarium is a single perl script, so all you have to do is make sure
 it's executable and put it somewhere convenient, like /usr/local/bin or
 /usr/local/games.
 
+  Slackware 15.0
+  ------
+    1 - Install perl-Curses
+       https://slackbuilds.org/repository/15.0/perl/perl-Curses/
+
+    2 - Clone and Run
+        git clone https://github.com/ryuuzaki42/asciiquarium
+        cd asciiquarium/
+        ./asciiquarium
+        ./tiftquarium
+
+    # Packages in releases:
+        https://github.com/ryuuzaki42/asciiquarium/releases
+
   Ubuntu
   ------
 
@@ -39,12 +53,15 @@ Usage
 -----
 
 Command line arguments:
-    -c  "classic" mode, only show species from Asciiquarium 1.0
+    -b, black and white mode
+    -c, "classic" mode, only show species from asciiquarium 1.1
+    -f number, Number of fish (like -f 10)
 
 While running:
-    q    quit
-    r    redraw (will recreate all entities)
-    p    toggle pause
+    q - quit
+    r - redraw (will recreate all entities)
+    p - toggle pause
+    mouse scroll - next draw (temporary speedups)
 
 Contributors
 ------------
