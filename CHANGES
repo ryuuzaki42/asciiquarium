@@ -1,9 +1,11 @@
 Changes for asciiquarium and tiftquarium
 
 Version 1.2
-    - ? to ' '
-    - tab to spaces
-    - more information in --help message
+    - Spaces instead of tab
+    - ' ' instead of '?'
+    - More option when running (see help message)
+    - More information in help message (-h or --help)
+    - Add tiftquarium
 
 Version 1.1
     - Add new fish species
