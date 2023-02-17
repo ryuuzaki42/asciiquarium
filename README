@@ -1,15 +1,14 @@
-                              Asciiquarium v1.1
-                    by Kirk Baucom <kbaucom@schizoid.com>
-                          http://www.robobunny.com
 
 Asciiquarium is an aquarium/sea animation in ASCII art.
+
+Original: https://robobunny.com/projects/asciiquarium/html/
+by: Kirk Baucom <kbaucom@schizoid.com>
 
 Installation
 ------------
 
-Asciiquarium is a single perl script, so all you have to do is make sure
-it's executable and put it somewhere convenient, like /usr/local/bin or
-/usr/local/games.
+Asciiquarium is a perl script, so all you have to do is make sure
+it's executable and put it somewhere convenient.
 
   Slackware 15.0
   ------
@@ -25,6 +24,36 @@ it's executable and put it somewhere convenient, like /usr/local/bin or
     # Packages in releases:
         https://github.com/ryuuzaki42/asciiquarium/releases
 
+Usage
+-----
+
+Command line arguments:
+    -b, black and white mode
+    -c, "classic" mode, only show species from asciiquarium 1.1
+    -f number, Number of fish (like -f 10)
+
+While running:
+    q - quit
+    r - redraw (will recreate all entities)
+    p - toggle pause
+    mouse scroll - next draw (temporary speedups)
+
+First... the *original* README:
+
+```text
+       Asciiquarium v1.1
+                    by Kirk Baucom <kbaucom@schizoid.com>
+                          http://www.robobunny.com
+
+Asciiquarium is an aquarium/sea animation in ASCII art.
+
+Installation
+------------
+
+Asciiquarium is a single perl script, so all you have to do is make sure
+it's executable and put it somewhere convenient, like /usr/local/bin or
+/usr/local/games.
+
   Ubuntu
   ------
 
@@ -34,7 +63,7 @@ it's executable and put it somewhere convenient, like /usr/local/bin or
        sudo apt-get install libcurses-perl
   2) Run
        cpan
-     at the shell. Agree to the defaults for everything.
+     at the shell.  Agree to the defaults for everything.
      To leave cpan, type
        quit
   3) Type
@@ -53,15 +82,12 @@ Usage
 -----
 
 Command line arguments:
-    -b, black and white mode
-    -c, "classic" mode, only show species from asciiquarium 1.1
-    -f number, Number of fish (like -f 10)
+    -c  "classic" mode, only show species from Asciiquarium 1.0
 
 While running:
-    q - quit
-    r - redraw (will recreate all entities)
-    p - toggle pause
-    mouse scroll - next draw (temporary speedups)
+    q   quit
+    r   redraw (will recreate all entities)
+    p   toggle pause
 
 Contributors
 ------------
@@ -73,3 +99,29 @@ Pretty much all of the ASCII art was done by Joan Stark:
 http://www.geocities.com/SoHo/7373/
 
 Anything that she didn't do, I don't have a source for.
+
+```
+
+This repository is a fork from [cmatsuoka's asciiquarium][], with new fish
+species backported from the Android live wallpaper and other minor
+improvements by Claudio Matsuoka. It also merges contributions found in
+that repository's [Pull Requests][]:
+
+- [Added objects from Kirk's version][] by [driechers][] with art originally by
+  Kirk Baucom
+- [Added yellow submarine][] by [driechers][] with art originally by Carl
+  Pilcher as found at [https://ascii.co.uk/art/submarine][]
+- [Add sword fish][] by [robert1003][] with art from
+  [https://ascii.co.uk/art/fish][]
+
+[Perl]: https://www.perl.org/
+[Installing Perl Modules]: https://github.polettix.it/ETOOBUSY/2020/01/04/installing-perl-modules/
+[cmatsuoka's asciiquarium]: https://github.com/cmatsuoka/asciiquarium
+[Pull Requests]: https://github.com/cmatsuoka/asciiquarium/pulls
+[robert1003]: https://github.com/robert1003
+[Add sword fish]: https://github.com/cmatsuoka/asciiquarium/pull/12
+[https://ascii.co.uk/art/fish]: https://ascii.co.uk/art/fish
+[driechers]: https://github.com/driechers
+[Added yellow submarine]: https://github.com/cmatsuoka/asciiquarium/pull/6
+[https://ascii.co.uk/art/submarine]: https://ascii.co.uk/art/submarine
+[Added objects from Kirk's version]: https://github.com/cmatsuoka/asciiquarium/pull/5
