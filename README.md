@@ -4,6 +4,8 @@ Asciiquarium is an aquarium/sea animation in ASCII art.
 Original: https://robobunny.com/projects/asciiquarium/html/
 by: Kirk Baucom <kbaucom@schizoid.com>
 
+LICENSE: GNU GENERAL PUBLIC LICENSE - Version 2, June 1991
+
 Installation
 ------------
 
