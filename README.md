@@ -119,9 +119,11 @@ that repository's [Pull Requests][]:
 And more:
 
 - [Added info some update info of polettix][] by [polettix][]
-- Help message (-h or --help)
-- Count of fish (-f number, like -f 10)
-- Spaces instead tabs
+- Help message (-h or --help) by [ryuuzaki42][]
+- Count of fish (-f number, like -f 10) by [ryuuzaki42][]
+- Spaces instead tabs by [ryuuzaki42][]
+
+"Update" to version 1.2
 
 [Perl]: https://www.perl.org/
 [Installing Perl Modules]: https://github.polettix.it/ETOOBUSY/2020/01/04/installing-perl-modules/
@@ -137,3 +139,4 @@ And more:
 [Added objects from Kirk's version]: https://github.com/cmatsuoka/asciiquarium/pull/5
 [polettix]: https://github.com/polettix
 [Added info some update info of polettix]: https://github.com/polettix/asciiquarium
+[polettix]: https://github.com/ryuuzaki42
