@@ -1,5 +1,23 @@
 Changes for asciiquarium and tiftquarium
 
+Version 1.2.1
+    - Deleted gpl.txt, README, MANIFEST
+    - Update help message
+    - Options to add objects whe asciiquarium is running:
+        a - random objects
+        b - ship/boat
+        B - big_fish
+        d - dolphins
+        D - ducks
+        f - fish
+        h - fishhook
+        m - monster
+        s - shark
+        S - submarine
+        W - sword_fish
+        A - swan
+        w - whale
+
 Version 1.2
     - Spaces instead of tab
     - ' ' instead of '?'
