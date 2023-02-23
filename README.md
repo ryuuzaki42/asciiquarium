@@ -1,21 +1,27 @@
 
-# Asciiquarium is an aquarium/sea animation in ASCII art.
+## Asciiquarium is an aquarium/sea animation in ASCII art
+
+### Link to repository: https://github.com/ryuuzaki42/asciiquarium
+
+-----
 
 Original: https://robobunny.com/projects/asciiquarium/html/
+
 By: Kirk Baucom <kbaucom@schizoid.com>
 
 LICENSE: GNU GENERAL PUBLIC LICENSE - Version 2, June 1991
 
+-----
+
 Installation
-------------
+-----
 
-Asciiquarium is a perl script, so all you have to do is make sure
-it's executable and put it somewhere convenient.
+Asciiquarium is a perl script, so all you have to do is make sure it's executable and put it somewhere convenient
 
-  Slackware 15.0
-  ------
+Slackware 15.0
+-----
     Need perl-Curses:
-       https://slackbuilds.org/repository/15.0/perl/perl-Curses/
+        https://slackbuilds.org/repository/15.0/perl/perl-Curses/
 
     Clone and Run
         git clone https://github.com/ryuuzaki42/asciiquarium
@@ -24,7 +30,7 @@ it's executable and put it somewhere convenient.
         ./tiftquarium
 
     # Or download the packages in releases:
-        https://github.com/ryuuzaki42/asciiquarium/releases
+[https://github.com/ryuuzaki42/asciiquarium/releases](https://github.com/ryuuzaki42/asciiquarium/releases)
 
 Usage
 -----
@@ -41,6 +47,21 @@ While running:
     r - redraw (will recreate all entities)
     p - toggle pause
     mouse scroll - next draw (temporary speedups)
+
+    # Add object(s):
+        a - random objects
+        b - ship/boat
+        B - big_fish
+        d - dolphins
+        D - ducks
+        f - fish
+        h - fishhook
+        m - monster
+        s - shark
+        S - submarine
+        W - sword_fish
+        A - swan
+        w - whale
 
 The *original* README:
 
@@ -123,7 +144,7 @@ And more:
 - [Added info some update info of polettix][] by [polettix][]
 - Add tiftquarium by [mtift][]
 
-Many ypdates in version 1.2 by [ryuuzaki42][], see CHANGES file
+Many updates in version 1.2 and up by [ryuuzaki42][], see CHANGES file
 
 [Perl]: https://www.perl.org/
 [Installing Perl Modules]: https://github.polettix.it/ETOOBUSY/2020/01/04/installing-perl-modules/
