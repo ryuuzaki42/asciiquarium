@@ -1,5 +1,9 @@
 Changes for asciiquarium and tiftquarium
 
+Version 1.2.2
+    - Info to run in fullscreen
+    - tiftquarium - add 'add_old_fish' to "-c" classic mode
+
 Version 1.2.1
     - Deleted gpl.txt, README, MANIFEST
     - Update help message

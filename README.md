@@ -63,6 +63,12 @@ While running:
         A - swan
         w - whale
 
+Run in fullscreen
+
+    xterm -fullscreen -bg black -e asciiquarium
+
+xterm runs asciiquarium in fullscreen and -bg black avoid the background of xterm showing as a border behind asciiquarium
+
 The *original* README:
 
 ```text

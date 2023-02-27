@@ -52,7 +52,7 @@ use Getopt::Std;
 use strict;
 use warnings;
 
-my $version = "1.2";
+my $version = "1.2.2";
 my $new_fish = 1;
 my $new_monster = 1;
 
@@ -491,8 +491,200 @@ sub add_old_fish {
     my @fish_image = (
 
 q{
+       \
+     ...\..,
+\  /'       \
+ >=     (  ' >
+/  \      / /
+    `"'"'/''
 },
 q{
+       2
+     1112111
+6  11       1
+ 66     7  4 5
+6  1      3 1
+    11111311
+},
+q{
+      /
+  ,../...
+ /       '\  /
+< '  )     =<
+ \ \      /  \
+  `'\'"'"'
+},
+q{
+      2
+  1112111
+ 1       11  6
+5 4  7     66
+ 1 3      1  6
+  11311111
+},
+q{
+    \
+\ /--\
+>=  (o>
+/ \__/
+    /
+},
+q{
+    2
+6 1111
+66  745
+6 1111
+    3
+},
+q{
+  /
+ /--\ /
+<o)  =<
+ \__/ \
+  \
+},
+q{
+  2
+ 1111 6
+547  66
+ 1111 6
+  3
+},
+q{
+       \:.
+\;,   ,;\\\\\,,
+  \\\\\;;:::::::o
+  ///;;::::::::<
+ /;` ``/////``
+},
+q{
+       222
+666   1122211
+  6661111111114
+  66611111111115
+ 666 113333311
+},
+q{
+      .:/
+   ,,///;,   ,;/
+ o:::::::;;///
+>::::::::;;\\\\\
+  ''\\\\\\\\\'' ';\
+},
+q{
+      222
+   1122211   666
+ 4111111111666
+51111111111666
+  113333311 666
+},
+q{
+  __
+><_'>
+   '
+},
+q{
+  11
+61145
+   3
+},
+q{
+ __
+<'_><
+ `
+},
+q{
+ 11
+54116
+ 3
+},
+q{
+   ..\,
+>='   ('>
+  '''/''
+},
+q{
+   1121
+661   745
+  111311
+},
+q{
+  ,/..
+<')   `=<
+ ``\```
+},
+q{
+  1211
+547   166
+ 113111
+},
+q{
+   \
+  / \
+>=_('>
+  \_/
+   /
+},
+q{
+   2
+  1 1
+661745
+  111
+   3
+},
+q{
+  /
+ / \
+<')_=<
+ \_/
+  \
+},
+q{
+  2
+ 1 1
+547166
+ 111
+  3
+},
+q{
+  ,\
+>=('>
+  '/
+},
+q{
+  12
+66745
+  13
+},
+q{
+ /,
+<')=<
+ \`
+},
+q{
+ 21
+54766
+ 31
+},
+q{
+  __
+\/ o\
+/\__/
+},
+q{
+  11
+61 41
+61111
+},
+q{
+ __
+/o \/
+\__/\
+},
+q{
+ 11
+14 16
+11116
 },
 );
 
@@ -1330,10 +1522,15 @@ sub rand_color {
 sub VERSION_MESSAGE {
     print "\ntiftquarium - version $version\n";
     print "\nCommand line arguments:";
-    print "\n    -c  \"classic\" mode, only show species from Asciiquarium 1.0\n";
-    print "\n   While running:";
-    print "\n       q   quit";
-    print "\n       r   redraw (will recreate all entities)";
-    print "\n       p   toggle pause\n\n";
+    print "\n    -c  \"classic\" mode, only show species from Asciiquarium 1.1\n";
+
+    print "\nWhile running:";
+    print "\n    q - quit";
+    print "\n    r - redraw (will recreate all entities)";
+    print "\n    p - toggle pause";
+    print "\n    mouse scroll - next draw (temporary speedups)";
+
+    print "\n\nRun in fullscreen:";
+    print "\n    xterm -fullscreen -bg black -e asciiquarium\n\n";
     exit;
 }
