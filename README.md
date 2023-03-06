@@ -20,7 +20,8 @@ Asciiquarium is a perl script, so all you have to do is make sure it's executabl
 
 Slackware 15.0
 -----
-    Need perl-Curses:
+    Need perl-Term-Animation and perl-Curses
+        https://slackbuilds.org/repository/15.0/perl/perl-Term-Animation/
         https://slackbuilds.org/repository/15.0/perl/perl-Curses/
 
     Clone and Run
