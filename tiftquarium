@@ -95,7 +95,6 @@ main();
 ####################### MAIN #######################
 
 sub main {
-
     my $anim = Term::Animation->new();
 
     # set the wait time for getch
@@ -107,7 +106,6 @@ sub main {
     my $start_time = time;
     my $paused = 0;
     while (1) {
-
         add_environment($anim);
         add_castle($anim);
         add_all_seaweed($anim);
@@ -1531,6 +1529,6 @@ sub VERSION_MESSAGE {
     print "\n    mouse scroll - next draw (temporary speedups)";
 
     print "\n\nRun in fullscreen:";
-    print "\n    xterm -fullscreen -bg black -e asciiquarium\n\n";
+    print "\n    xterm -fullscreen -bg black -e tiftquarium\n\n";
     exit;
 }
