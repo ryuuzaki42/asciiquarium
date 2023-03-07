@@ -1,5 +1,10 @@
 Changes for asciiquarium and tiftquarium
 
+Version 1.2.2_TAG_2
+    - mv CHANGES changes
+    - mv README.md readme.md
+    - add asciiquarium_fs - Run asciiquarium in fullscreen
+
 Version 1.2.2
     - Info to run in fullscreen
     - tiftquarium - add 'add_old_fish' to "-c" classic mode
