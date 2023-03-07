@@ -151,7 +151,7 @@ And more:
 - [Added info some update info of polettix][] by [polettix][]
 - Add tiftquarium by [mtift][]
 
-Many updates in version 1.2 and up by [ryuuzaki42][], see CHANGES file
+Many updates in version 1.2 and up by [ryuuzaki42][], see __changes__ file
 
 [Perl]: https://www.perl.org/
 [Installing Perl Modules]: https://github.polettix.it/ETOOBUSY/2020/01/04/installing-perl-modules/
