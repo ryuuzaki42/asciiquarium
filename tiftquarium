@@ -52,12 +52,21 @@ use Getopt::Std;
 use strict;
 use warnings;
 
-my $version = "1.2.2";
+my $version = "1.2.3";
 my $new_fish = 1;
 my $new_monster = 1;
 
-our $opt_c;
-getopts('c');
+my %options=();
+getopts("ch", \%options);
+
+our $opt_c = $options{c}; # 'classic' mode
+our $opt_h = $options{h}; # help
+
+our $opt_h = $options{h}; # help
+
+if ($opt_h) { # -h
+    VERSION_MESSAGE();
+}
 
 if ($opt_c) { # 'classic' mode
     $new_fish = 0;

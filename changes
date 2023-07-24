@@ -1,6 +1,7 @@
 Changes for asciiquarium and tiftquarium
 
-Version 1.2.2_TAG_2
+Version 1.2.3
+    - tiftquarium - correct display of help message
     - mv CHANGES changes
     - mv README.md readme.md
     - add asciiquarium_fs - Run asciiquarium in fullscreen
