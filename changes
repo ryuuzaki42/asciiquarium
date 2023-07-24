@@ -1,6 +1,7 @@
 Changes for asciiquarium and tiftquarium
 
 Version 1.2.3
+    - asciiquarium - correct "f:" -f takes an argument
     - tiftquarium - correct display of help message
     - mv CHANGES changes
     - mv README.md readme.md
