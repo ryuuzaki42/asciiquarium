@@ -63,7 +63,7 @@ my $new_monster = 1;
 #getopts('cb');
 
 my %options=();
-getopts("cbfh", \%options);
+getopts("cbf:h", \%options);
 
 our $opt_b = $options{b}; # black and white
 our $opt_c = $options{c}; # 'classic' mode
